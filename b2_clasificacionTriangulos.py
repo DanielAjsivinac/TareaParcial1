@@ -80,10 +80,13 @@ while True:
                 triangulo = "Escaleno"
                 print(triangulo)
             insertar(conexion, cursor, triangulo, A, B, C)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b2.txt', 'a') as f:
+                f.write("Triangulo: "+str(triangulo)+"    Lados(a,b,c) : "+ str(A)+", "+ str(B)+", "+str(C)+"\n")
         else:
             print("ingrese valores que cumplan con a<(b+c) & b<(a+c) & c<(a+b) para formar un triangulo")
     elif x == 1:
         obtener(cursor)
+        input("\n presone para continuar")
     elif x == 2:
         print("---Eliminar---")
         eliminarOpciones(conexion, cursor)

@@ -84,10 +84,13 @@ while TRUE:
             fact = factorial(numero)
             print(fact)
             insertar(conexion,cursor,numero,fact)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b3.txt', 'a') as f:
+                f.write("Numero: "+str(numero)+"    Factorial: "+ str(fact)+"\n")
         else:
             print("el numero ingresado no es divisible entre 7")
     elif opcion == 1:
         obtener(cursor)
+        input("\n presone para continuar")
     elif opcion==2:
         eliminarhistorial(conexion,cursor)
     elif opcion ==3:

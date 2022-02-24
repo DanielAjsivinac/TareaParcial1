@@ -78,9 +78,9 @@ def eliminarporID(conexion):
 def asignar_ID(cursor):
     cursor.execute('SELECT COUNT(*) FROM Taxis')
     a = cursor.fetchall()
-    print(a)
+ #   print(a)
     id = a[0]
-    print("datos:" +str(id))
+ #   print("datos:" +str(id))
     return id 
 
 def insertarDatos(cursor):
@@ -118,6 +118,8 @@ while True:
     if opcion==0:
         vector=insertarDatos(cursor)
         insertar(conexion,cursor, vector)
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b7.txt', 'a') as f:
+            f.write("Modelo: "+str(vector[1])+"    Km recorridos : "+ str(vector[2])+"      Condicion: "+ str(vector[3])+"\n")
     elif opcion ==1:
         obtener(cursor)
     elif opcion ==2:

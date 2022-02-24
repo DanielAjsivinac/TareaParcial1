@@ -108,10 +108,14 @@ while True:
         bisiesto = Año_bisiesto(año)
         print(bisiesto)
         insertar(conexion,cursor,bisiesto[1],bisiesto[0])
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b6.txt', 'a') as f:
+                f.write("Año: "+str(bisiesto[0])+"    Bisiesto/no bisiesto : "+ str(bisiesto[1])+"\n")
+        input("\n presone para continuar")
     elif opcion == 1:
         obtener(cursor)
     elif opcion == 2:
         eliminarOpciones(conexion, cursor)
+        input("\n presone para continuar")
     elif opcion == 3:
         cursor.close()
         conexion.close()

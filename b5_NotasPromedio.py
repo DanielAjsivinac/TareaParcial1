@@ -107,12 +107,14 @@ while true:
         b = entradaNotas(notas[1])
         c = entradaNotas(notas[2])
         Resultado = aprobar_reprobar(a,b,c)
-        print("promedio: " + str(Resultado[0])+ "Estado: " + Resultado[1])
-
+        print("promedio: " + str(Resultado[0])+ "   Estado: " + Resultado[1])
+        input("\n presione para continuar")
         insertar(conexion,cursor,Resultado[1],Resultado[0])
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b5.txt', 'a') as f:
+                f.write("Estado : "+str(Resultado[1])+ "    Promedio_Notas : "+ str(Resultado[0])+ "\n")
     elif opcion == 1:
         obtener(cursor)
-        input("presione para continuar")
+        input("\n presone para continuar")
     elif opcion == 2:
         eliminarOpciones(conexion,cursor)
     elif opcion == 3:
@@ -121,7 +123,7 @@ while true:
         break
     else:
         print("seleccione una opcion valida")
-        input("presione para continuar")
+        input("\n presione para continuar")
         cursor.close()
         conexion.close()
         

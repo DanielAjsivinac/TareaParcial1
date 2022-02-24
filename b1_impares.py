@@ -45,9 +45,12 @@ while TRUE:
         print("impares: " + str(numImpar))
         print("numero impares: "+ str(len(numImpar)))
         insertar(conexion,cursor,numImpar,len(numImpar))
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b1.txt', 'a') as f:
+            f.write("Impares: "+str(numImpar)+"    Cantidad: "+ str(len(numImpar))+"\n")
         input("presione para continuar")
     elif w == 1:
         obtener(cursor)
+        input("\n presone para continuar")
     elif w == 2:
         eliminarhistorial(conexion, cursor)
     elif w == 3:

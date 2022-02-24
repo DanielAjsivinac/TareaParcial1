@@ -129,9 +129,12 @@ while True:
             else:
                 break
             insertar(conexion,cursor,fig.get(figura),area)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_b4.txt', 'a') as f:
+                f.write("Figura: "+str(fig.get(figura))+"    Area : "+ str(area)+"\n")
             print("el area del " + str(fig.get(figura)) + " "+ str(area))
     elif opcion == 1:
         obtener(cursor)
+        input("\n presone para continuar")
     elif opcion == 2:
         eliminarOpciones(conexion,cursor)
     elif opcion == 3:
