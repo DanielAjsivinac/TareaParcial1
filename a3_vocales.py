@@ -11,6 +11,8 @@ def programa():
     frase =input("ingrese una palabla/frase (28 caracteres max):    ")
     numeroVocales = contar_vocales(frase)
     print("la palabra/frase tiene "+str(numeroVocales)+" vocales")
+    with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a3.txt', 'a') as f:
+                f.write("Palabra: "+str(frase)+"    Numero de Vocales: "+ str(numeroVocales)+"\n")
     return [frase,numeroVocales]
 
 def menu():

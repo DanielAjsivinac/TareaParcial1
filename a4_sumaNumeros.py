@@ -16,6 +16,8 @@ def programa():
     for i in range(0,numero+1):
         suma = suma +i
     print("la suma: " +str(suma))
+    with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a4.txt', 'a') as f:
+                f.write("Numero: "+str(numero)+"    Suma: "+ str(suma)+"\n")
     return [numero,suma]
 
 def menu():

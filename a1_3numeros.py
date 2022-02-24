@@ -1,6 +1,7 @@
 from asyncio.windows_events import NULL
 import sympy
 import psycopg2
+
 #pedir 3 numeros, 1 mayor->suma, 2do mayor-> multiplicacion, 3ro mayor -> concatenar
 def entradaEntera(mensaje):
         try:
@@ -25,28 +26,42 @@ def programanumeros(conexion,cursor):
         if a == c :
             print("todos son iguales")
             insertar(conexion,cursor,"Todos iguales",OrdenIngreso, NULL)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Todos iguales;"+str(OrdenIngreso)+";null"+"\n")
         else:
             print("numero diferente: " +str(c))
             insertar(conexion,cursor,"dos iguales", OrdenIngreso, NULL)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Dos iguales;"+str(OrdenIngreso)+";null"+"\n")
     elif a == c:
         print("numero diferente: " +str(b))
         insertar(conexion,cursor,"dos iguales", OrdenIngreso, NULL)
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Dos iguales;"+str(OrdenIngreso)+";null"+"\n")
     elif b==c:
         print("numero diferente: " +str(a))
         insertar(conexion,cursor,"dos iguales", OrdenIngreso, NULL)
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Dos iguales;"+str(OrdenIngreso)+";null"+"\n")
     else:   
         if numeros[0] == a:
             suma = a+b+c
             print(suma)
             insertar(conexion,cursor,"Suma",OrdenIngreso, suma)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Suma;"+str(OrdenIngreso)+"; "+ str(suma)+"\n")
         elif numeros[0] == b:
             mult = a*b*c
             print(mult)
             insertar(conexion,cursor,"Multiplicacion",OrdenIngreso, mult)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Multiplicacion;"+str(OrdenIngreso)+"; "+ str(mult)+"\n")
         elif numeros[0] == c:
             con =str(a)+str(b)+str(c)
             print(con)
             insertar(conexion,cursor,"Concatenar",OrdenIngreso, con)
+            with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a1.txt', 'a') as f:
+                f.write("Concatenar;"+str(OrdenIngreso)+"; "+ str(con)+"\n")
         else:
             print("ocurrio un error")
         
@@ -115,6 +130,7 @@ def eliminarOpciones(conexion, curs):
         return eliminarOpciones(conexion, curs)
 
 #------------------------
+
 
 while True:
     conexion = conectar()

@@ -65,6 +65,8 @@ while True:
     if opcion == 0:
         palabra = programa()
         insertar(conexion,cursor,palabra,vocales.get("a"),vocales.get("e"),vocales.get("i"),vocales.get("o"),vocales.get("u"))
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a7.txt', 'a') as f:
+            f.write("Palabra: " +palabra+"| "+ " a: " + str(vocales.get("a"))+ " e: " + str(vocales.get("e"))+ " i: " + str(vocales.get("i"))+ " o: " + str(vocales.get("o"))+ " u: " + str(vocales.get("u"))+"\n")
         input("\n presione para continuar")
     elif opcion == 1:
         obtener(cursor)

@@ -1,0 +1,2 @@
+Palabra: murcielago|  a: 1 e: 1 i: 1 o: 1 u: 1
+Palabra:  hola mundo|  a: 1 e: 0 i: 0 o: 2 u: 1

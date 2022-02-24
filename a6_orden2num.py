@@ -31,6 +31,8 @@ def programa():
             des.append(mayor)
             mayor = mayor - 1
         print(des)
+        with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a6.txt', 'a') as f:
+            f.write("Mayor "+str(des[0])+"    Menor: "+ str(des[len(des)-1])+"   Resultado: " + str(des) +"\n")
         return [des[0],des[len(des)-1],des]
     
 def menu():

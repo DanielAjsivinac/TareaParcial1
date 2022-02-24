@@ -9,7 +9,7 @@ def entradaEntera():
             print("ingrese un numero")
             return entradaEntera()
 
-def programaDivisores():        #agragar insertar al final (vector de datos)
+def programaDivisores():        
     print("ingrese un numero: ")
     numero = entradaEntera()
     divisores = []
@@ -19,6 +19,8 @@ def programaDivisores():        #agragar insertar al final (vector de datos)
             #print(i)
             divisores.append(i)
     print(divisores)
+    with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a2.txt', 'a') as f:
+                f.write("Numero: "+str(numero)+"    Divisores: "+ str(divisores)+"\n")
     return [numero, divisores]
 
 def menu():

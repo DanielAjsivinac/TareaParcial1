@@ -27,6 +27,8 @@ def programa():
                 res.append(suma) 
                 suma = suma+2
     print(res)
+    with open('C:\\Users\\Usuario FAX\\Documents\\DANI\\TAREAS\\proyectos AIE\\tarea1P\\TareaParcial1\\Salida_a5.txt', 'a') as f:
+            f.write("Inicio: "+str(inicio)+"    Final: "+ str(final)+"  Orden: "+str(res)+"\n")
     return [inicio,final,res]
 
 def menu():
