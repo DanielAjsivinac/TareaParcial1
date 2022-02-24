@@ -1,3 +1,6 @@
+import numpy as np
+import psycopg2
+
 def entradaEntera():
         try:
             x = int(input())
@@ -12,10 +15,8 @@ def programa():
     suma = 0
     for i in range(0,numero+1):
         suma = suma +i
-    #   print("i: " +str(i))
-    #   print ("suma: " +str(suma))
-
     print("la suma: " +str(suma))
+    return [numero,suma]
 
 def menu():
     try:
@@ -25,23 +26,52 @@ def menu():
     except:
         print("ingrese un numero")
         print("presione para continuar")
+#***************************
+def conectar():
+    try:
+        conexion = psycopg2.connect(
+            host = "localhost",port = "5432", database = "TareaP1", user = "postgres", password = "123456")
+        return conexion
+    except psycopg2.Error: 
+        print("no se pudo conectar")
 
+def obtener(curs):
+    curs.execute('SELECT*FROM Programa_a4')
+    valores= curs.fetchall()
+    print(valores)
+
+def insertar(conexion,curs, numero, suma):
+    curs.execute("INSERT INTO Programa_a4(numero, suma) VALUES(%s,%s);",(numero, suma))
+    conexion.commit()
+
+def eliminarOpciones(conexion, curs):
+        curs.execute('DELETE FROM Programa_a4')
+        conexion.commit()
+
+
+#***************************
 while True:
+    conexion = conectar()
+    cursor = conexion.cursor()
     opcion = menu()
     while opcion == None:
         opcion = menu()
     if opcion == 0:
-        programa()
+        resultado =programa()
+        insertar(conexion,cursor,resultado[0],resultado[1])
+        input("\n presione para continuar")
     elif opcion == 1:
-        print("por ahora nada")
+        obtener(cursor)
+        input("\n presione para continuar")
     elif opcion == 2:
-        print("eliminar")
+        eliminarOpciones(conexion,cursor)
+        
     elif opcion == 3:
-#        cursor.close()
-#        conexion.close()
+        cursor.close()
+        conexion.close()
         break
     else:
         print("seleccione una opcion valida")
         input("presione para continuar")
-#        cursor.close()
-#        conexion.close()
+        cursor.close()
+        conexion.close()
